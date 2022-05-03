@@ -10,12 +10,7 @@ class JobController extends Controller
     //追記
     public function add()
     {
-        return view('admin.job.create');
-    }
-
-    public function create()
-    {
-        return redirect('admin/job/create');
+        return view('admin.job.index');
     }
 
     public function edit()
@@ -28,8 +23,8 @@ class JobController extends Controller
         return redirect('admin/job/edit');
     }
     
-     public function delete()
+     public function check()
     {
-        return redirect('admin/job/delete');
+        return view('admin.job.check');
     }
 }

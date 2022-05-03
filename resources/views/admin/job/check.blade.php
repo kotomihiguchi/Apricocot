@@ -7,12 +7,15 @@
         <title>仕事依頼</title>
     </head>
     <body>
-      <h2>編集</h2>
+      <m-header>
+        確認画面
+      </m-header>
       <main>
-        変更部分
+        <p>変更した部分</p>
       </main>
       <m-footer>
-        <a href="{{ action("Admin\JobController@check") }}">確認画面へ</a>
+        <form action="/admin/job/index.blade.php">
+          <button type="submit">完了</button>
         </form>
       </m-footer>
     </body>

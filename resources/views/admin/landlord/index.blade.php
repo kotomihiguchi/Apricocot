@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ secure_asset('css/landlord.css') }}" rel="stylesheet">
-        <title>管理者</title>
+        <title>管理者Top</title>
     </head>
     <body>
         <header>
@@ -15,7 +15,7 @@
         <main>
             <a>トップ</a>
             <a href="{{ action("Admin\BlogController@add") }}">ブログ</a>
-            <a>仕事依頼</a>
+            <a href="{{ action("Admin\jobController@index") }}">仕事依頼</a>
             <a >オンラインショップ</a>
             <a>問い合わせ</a>
             <a>登録者</a>

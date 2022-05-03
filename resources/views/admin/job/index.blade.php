@@ -7,13 +7,14 @@
         <title>仕事依頼</title>
     </head>
     <body>
-      <h2>編集</h2>
       <main>
-        変更部分
+        <m-header>
+          <h2>仕事依頼</h2>
+        <m-header>
+     　  <p>現在表示の仕事依頼</p>
+        <m-footer>
+          <a href="{{ action("Admin\JobController@edit") }}">編集する</a>
+        </m-footer>
       </main>
-      <m-footer>
-        <a href="{{ action("Admin\JobController@check") }}">確認画面へ</a>
-        </form>
-      </m-footer>
     </body>
 </html>
