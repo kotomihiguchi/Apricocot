@@ -76,11 +76,7 @@ Route::group(['prefix' => 'admin'], function() {
   //管理者
     Route::get('landlord', 'Admin\LandlordController@index');
   //トップ
-    Route::get('news/create', 'Admin\TopController@add');
-    Route::post('news/create', 'Admin\TopController@create');
-    Route::post('news/edit', 'Admin\TopController@edit');
-    Route::post('news/edit', 'Admin\TopController@update');
-    Route::post('news/delete', 'Admin\TopController@delete');
+    Route::get('top', 'Admin\TopController@index');
   //ユーザー
     Route::get('news/create', 'Admin\UserController@add');
     Route::post('news/create', 'Admin\UserController@create');
