@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class JobController extends Controller
 {
     //追記
-    public function add()
+    public function index()
     {
         return view('admin.job.index');
     }
@@ -20,7 +20,7 @@ class JobController extends Controller
 
     public function update()
     {
-        return redirect('admin/job/edit');
+        return redirect('admin/job/index');
     }
     
      public function check()

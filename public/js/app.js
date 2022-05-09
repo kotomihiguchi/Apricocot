@@ -49895,6 +49895,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/blogcreate.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/blogcreate.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/jobcheck.scss":
 /*!**************************************!*\
   !*** ./resources/sass/jobcheck.scss ***!
@@ -49940,9 +49951,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!****************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/landlord.scss ./resources/sass/jobindex.scss ./resources/sass/jobedit.scss ./resources/sass/jobcheck.scss ***!
-  \****************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/landlord.scss ./resources/sass/jobindex.scss ./resources/sass/jobedit.scss ./resources/sass/jobcheck.scss ./resources/sass/blogcreate.scss ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49951,7 +49962,8 @@ __webpack_require__(/*! /home/ec2-user/environment/Apricocot/resources/sass/app.
 __webpack_require__(/*! /home/ec2-user/environment/Apricocot/resources/sass/landlord.scss */"./resources/sass/landlord.scss");
 __webpack_require__(/*! /home/ec2-user/environment/Apricocot/resources/sass/jobindex.scss */"./resources/sass/jobindex.scss");
 __webpack_require__(/*! /home/ec2-user/environment/Apricocot/resources/sass/jobedit.scss */"./resources/sass/jobedit.scss");
-module.exports = __webpack_require__(/*! /home/ec2-user/environment/Apricocot/resources/sass/jobcheck.scss */"./resources/sass/jobcheck.scss");
+__webpack_require__(/*! /home/ec2-user/environment/Apricocot/resources/sass/jobcheck.scss */"./resources/sass/jobcheck.scss");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/Apricocot/resources/sass/blogcreate.scss */"./resources/sass/blogcreate.scss");
 
 
 /***/ })

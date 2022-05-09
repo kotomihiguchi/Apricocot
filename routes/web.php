@@ -20,24 +20,35 @@ Auth::routes();
 //マルチログイン
 //Userログイン後
 Route::group(['middleware' => 'auth:user'], function() {
-Route::get('/home', 'HomeController@index')->name('home');
+  Route::get('/home', 'HomeController@index')->name('home');
 });
 //admin認証不要
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('/',         function () { return redirect('/admin/home'); });
-    Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
-    Route::post('login',    'Admin\LoginController@login');
+  Route::get('/',         function () { return redirect('/admin/home'); });
+  Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
+  Route::post('login',    'Admin\LoginController@login');
 });
 //Admin ログイン後
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
-    Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
-    Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+  Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
+  Route::get('home',      'Admin\HomeController@index')->name('admin.home');
 });
 
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function() {
+//管理者
+  Route::get('landlord', 'Admin\LandlordController@index');
+//トップ
+  Route::get('top', 'Admin\TopController@index');
+//仕事依頼
+  Route::get('job/index', 'Admin\JobController@index');
+  Route::get('job/edit', 'Admin\JobController@edit');
+  Route::post('job/edit', 'Admin\JobController@update');
+  Route::get('job/check', 'Admin\JobController@check');
+  
+  
   //ブログ
     Route::get('blog/create', 'Admin\BlogController@add');
     Route::post('blog/create', 'Admin\BlogController@create');
@@ -68,15 +79,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('news/edit', 'Admin\ItemController@edit');
     Route::post('news/edit', 'Admin\ItemController@update');
     Route::post('news/delete', 'Admin\ItemController@delete');
-  //仕事依頼
-    Route::get('job/index', 'Admin\JobController@index');
-    Route::get('job/edit', 'Admin\JobController@edit');
-    Route::post('job/edit', 'Admin\JobController@update');
-    Route::get('job/check', 'Admin\JobController@delete');
-  //管理者
-    Route::get('landlord', 'Admin\LandlordController@index');
-  //トップ
-    Route::get('top', 'Admin\TopController@index');
+
   //ユーザー
     Route::get('news/create', 'Admin\UserController@add');
     Route::post('news/create', 'Admin\UserController@create');

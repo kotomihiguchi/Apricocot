@@ -12,6 +12,4 @@ class LandlordController extends Controller
     {
         return view('admin.landlord.index');
     }
-    
-
 }
