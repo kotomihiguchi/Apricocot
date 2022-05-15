@@ -41,8 +41,15 @@ Route::group(['prefix' => 'admin'], function() {
 //管理者
   Route::get('landlord', 'Admin\LandlordController@index');
 //トップ
-  Route::get('top', 'Admin\TopController@index');
+  Route::get('top/create', 'Admin\TopController@add');
+  Route::post('top/create', 'Admin\TopController@create');
+  Route::get('top/index', 'Admin\TopController@index');
+  Route::get('top/edit', 'Admin\TopController@edit');
+  Route::post('top/edit', 'Admin\TopController@update');
+  Route::get('top/check', 'Admin\TopController@check');
 //仕事依頼
+  Route::get('job/create', 'Admin\JobController@add');
+  Route::post('job/create', 'Admin\JobController@create');
   Route::get('job/index', 'Admin\JobController@index');
   Route::get('job/edit', 'Admin\JobController@edit');
   Route::post('job/edit', 'Admin\JobController@update');

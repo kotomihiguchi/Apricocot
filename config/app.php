@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
-
+    'name' => env('APP_NAME', 'Apricocot'),
+    'admin_name' => env('APP_ADMIN_NAME', 'Apricocot管理者画面'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

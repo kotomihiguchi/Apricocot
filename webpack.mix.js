@@ -14,7 +14,12 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/landlord.scss', 'public/css')
+    .sass('resources/sass/topindex.scss', 'public/css')
+    .sass('resources/sass/topcreate.scss', 'public/css')
+    .sass('resources/sass/topedit.scss', 'public/css')
+    .sass('resources/sass/topcheck.scss', 'public/css')
     .sass('resources/sass/jobindex.scss', 'public/css')
+    .sass('resources/sass/jobcreate.scss', 'public/css')
     .sass('resources/sass/jobedit.scss', 'public/css')
     .sass('resources/sass/jobcheck.scss', 'public/css')
     .sass('resources/sass/blogcreate.scss', 'public/css');
