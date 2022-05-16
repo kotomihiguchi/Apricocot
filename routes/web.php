@@ -47,6 +47,13 @@ Route::group(['prefix' => 'admin'], function() {
   Route::get('top/edit', 'Admin\TopController@edit');
   Route::post('top/edit', 'Admin\TopController@update');
   Route::get('top/check', 'Admin\TopController@check');
+//ブログ
+  Route::get('blog/create', 'Admin\BlogController@add');
+  Route::post('blog/create', 'Admin\BlogController@create');
+  Route::get('blog/edit', 'Admin\BlogController@edit');
+  Route::post('blog/edit', 'Admin\BlogController@update');
+  Route::get('blog/check', 'Admin\BlogController@check');
+  Route::post('blog/delete', 'Admin\BlogController@delete');
 //仕事依頼
   Route::get('job/create', 'Admin\JobController@add');
   Route::post('job/create', 'Admin\JobController@create');
@@ -56,12 +63,6 @@ Route::group(['prefix' => 'admin'], function() {
   Route::get('job/check', 'Admin\JobController@check');
   
   
-  //ブログ
-    Route::get('blog/create', 'Admin\BlogController@add');
-    Route::post('blog/create', 'Admin\BlogController@create');
-    Route::get('blog/edit', 'Admin\BlogController@edit');
-    Route::post('blog/edit', 'Admin\BlogController@update');
-    Route::post('blog/delete', 'Admin\BlogController@delete');
   //カート
     Route::get('news/create', 'Admin\CartController@add');
     Route::post('news/create', 'Admin\CartController@create');

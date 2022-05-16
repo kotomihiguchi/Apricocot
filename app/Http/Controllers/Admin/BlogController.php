@@ -17,8 +17,8 @@ class BlogController extends Controller
     public function create(Request $request)
     {      
       // Varidationを行う
-      $this->validate($request, Job::$rules);
-      $job = new Job;
+      $this->validate($request, Blog::$rules);
+      $blog = new Blog;
       $form = $request->all();
       // フォームから画像が送信されてきたら、保存して、$job->image_path に画像のパスを保存する
       if (isset($form['image'])) {
@@ -32,62 +32,31 @@ class BlogController extends Controller
       // フォームから送信されてきたimageを削除する
       unset($form['image']);
      // データベースに保存する
-    $job->fill($form);
-      $job->save();
-        return redirect('admin/job/index');
+    $blog->fill($form);
+      $blog->save();
+        return redirect('admin/blog/index');
     }
     public function index()
     {
       // それ以外はすべてのニュースを取得する
-          $job = Job::find(1);
-        return view('admin.job.index',['job' => $job]);
+          $blog = Blog::find(1);
+        return view('admin.blog.index',['blog' => $blog]);
     }
     public function edit()
     {
-        $job = Job::find(1);
-        return view('admin.job.edit',['job' => $job]);
+        $blog = Blog::find(1);
+        return view('admin.blog.edit',['blog' => $blog]);
     }
     public function update()
     {
-        return redirect('admin/job/index');
+        return redirect('admin/blog/index');
     }
      public function check()
     {
-        return view('admin.job.check');
+        return view('admin.blog.check');
     }
-}<?php
-
-namespace App\Http\Controllers\Admin;
-
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
-class BlogController extends Controller
-{
-    //追記
-    public function add()
-    {
-        return view('admin.blog.create');
-    }
-
-    public function create()
-    {
-        return redirect('admin/blog/create');
-    }
-
-    public function edit()
-    {
-        return view('admin.blog.edit');
-    }
-
-    public function update()
-    {
-        return redirect('admin/blog/edit');
-    }
-    
      public function delete()
     {
         return redirect('admin/blog/delete');
     }
 }
-

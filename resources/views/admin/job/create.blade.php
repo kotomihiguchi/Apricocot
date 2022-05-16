@@ -19,6 +19,7 @@
                     <label class="col-md-2">本文</label>
                     <div class="col-md-10">
                         <input type="text" class="form-control" name="body" value="{{ old('body') }}">
+                        <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
                     </div>
                   </div>
                   <div class="form-group row">
