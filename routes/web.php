@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 //マルチログイン
 //Userログイン後
 Route::group(['middleware' => 'auth:user'], function() {
@@ -34,35 +33,46 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
   Route::get('home',      'Admin\HomeController@index')->name('admin.home');
 });
 
-
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function() {
+  
 //管理者
   Route::get('landlord', 'Admin\LandlordController@index');
+
 //トップ
   Route::get('top/create', 'Admin\TopController@add');
   Route::post('top/create', 'Admin\TopController@create');
   Route::get('top/index', 'Admin\TopController@index');
   Route::get('top/edit', 'Admin\TopController@edit');
   Route::post('top/edit', 'Admin\TopController@update');
-  Route::get('top/check', 'Admin\TopController@check');
+  Route::post('top/check', 'Admin\TopController@check');
+  
 //ブログ
   Route::get('blog/create', 'Admin\BlogController@add');
   Route::post('blog/create', 'Admin\BlogController@create');
   Route::get('blog/edit', 'Admin\BlogController@edit');
   Route::post('blog/edit', 'Admin\BlogController@update');
-  Route::get('blog/check', 'Admin\BlogController@check');
-  Route::post('blog/delete', 'Admin\BlogController@delete');
+  Route::get('blog/index', 'Admin\BlogController@index');
+  Route::get('blog/delete', 'Admin\BlogController@delete');
+  
 //仕事依頼
   Route::get('job/create', 'Admin\JobController@add');
   Route::post('job/create', 'Admin\JobController@create');
   Route::get('job/index', 'Admin\JobController@index');
   Route::get('job/edit', 'Admin\JobController@edit');
   Route::post('job/edit', 'Admin\JobController@update');
-  Route::get('job/check', 'Admin\JobController@check');
+  Route::post('job/check', 'Admin\JobController@check');
+  
+//問い合わせ
+  Route::get('inquiy/create', 'Admin\InquiyController@add');
+  Route::post('inquiy/create', 'Admin\InquiyController@create');
+  Route::get('inquiy/index', 'Admin\InquiyController@index');
+  Route::get('inquiy/edit', 'Admin\InquiyController@edit');
+  Route::post('inquiy/edit', 'Admin\InquiyController@update');
+    
   
   
+  //作成まえ
   //カート
     Route::get('news/create', 'Admin\CartController@add');
     Route::post('news/create', 'Admin\CartController@create');
@@ -75,12 +85,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('news/edit', 'Admin\FavController@edit');
     Route::post('news/edit', 'Admin\FavController@update');
     Route::post('news/delete', 'Admin\FavController@delete');
-  //問い合わせ
-    Route::get('news/create', 'Admin\InquiyController@add');
-    Route::post('news/create', 'Admin\InquiyController@create');
-    Route::post('news/edit', 'Admin\InquiyController@edit');
-    Route::post('news/edit', 'Admin\InquiyController@update');
-    Route::post('news/delete', 'Admin\InquiyController@delete');
+
   //商品
     Route::get('news/create', 'Admin\ItemController@add');
     Route::post('news/create', 'Admin\ItemController@create');

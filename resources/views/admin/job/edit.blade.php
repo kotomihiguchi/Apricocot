@@ -8,7 +8,7 @@
             <div class="col-md-8 mx-auto">
                 <h2>仕事依頼</h2>
                 <h3>編集</h3>
-                    <form action="{{ action('Admin\JobController@create') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ action('Admin\JobController@check') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -28,11 +28,12 @@
                             <input type="file" class="form-control-file" name="image">
                             <img src="{{ asset('storage/image/' . $job->image_path)}}">
                         </div>
-                    </div>
+                  </div>
+                    <input type="hidden" name="image_path" value="{{$job->image_path}}">
                     @csrf
-                     <input type="submit" class="btn btn-primary" value="投稿">
+                     <input type="submit" class="btn btn-primary" value="確認画面へ">
+                     
                 </form>
-                  <a href="{{ action("Admin\JobController@check") }}">確認画面へ</a>
                 <footer>
                     <a href="{{ action("Admin\LandlordController@index") }}">管理者一覧に戻る<a>
                 </footer>

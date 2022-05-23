@@ -38,7 +38,7 @@ class TopController extends Controller
         
     }
     
-    public function index()
+    public function index(Request $request)
     {
       // それ以外はすべてのニュースを取得する
           $top = Top::find(1);
@@ -46,18 +46,28 @@ class TopController extends Controller
         return view('admin.top.index',['top' => $top]);
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
         $top = top::find(1);
         return view('admin.top.edit',['top' => $top]);
     }
 
-    public function update()
-    {
+    public function update(Request $request)
+    {  
+      $top = Top::find(1);
+      $top->image_path = $request->input('image_path');
+      $top->save();
         return redirect('admin/top/index');
     }
-　　public function check()
+    public function check(Request $request)
     {
-        return view('admin.job.check');
+      $form = $request->all();
+      if (isset($form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $image_path = basename($path);
+      } else {
+          $image_path = $request->input('image_path');;
+      }
+        return view('admin.job.check',['image_path' => $image_path]);
     }
 }

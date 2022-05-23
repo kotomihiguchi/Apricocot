@@ -8,9 +8,13 @@
             <div class="col-md-8 mx-auto">
                 <h2>仕事依頼</h2>
                 <h3>確認画面</h3>
-                <main>変更した部分</main>
-                <form action="/admin/job/index">
+                <p>{{$body}}</p>
+                <img src="{{ asset('storage/image/' . $image_path)}}">
+                <form action="{{ action('Admin\JobController@update') }}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="body" value="{{$body}}">
+                     <input type="hidden" name="image_path" value="{{$image_path}}">
                     <button type="submit">変更する</button>
+                    @csrf
                 </form>
                 <footer>
                     <a href="{{ action("Admin\LandlordController@index") }}">管理者一覧に戻る<a>

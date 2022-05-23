@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-8 mx-auto">
         <h2>Top</h2>
-        <h3>編集</h3>
+        <h3>変更</h3>
         <form action="{{ action('Admin\TopController@create') }}" method="post" enctype="multipart/form-data">
           @if (count($errors) > 0)
             <ul>

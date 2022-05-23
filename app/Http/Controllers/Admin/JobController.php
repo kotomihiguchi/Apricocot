@@ -36,7 +36,7 @@ class JobController extends Controller
       $job->save();
         return redirect('admin/job/index');
     }
-    public function index()
+    public function index(Request $request)
     {
       // それ以外はすべてのニュースを取得する
           $job = Job::find(1);
@@ -47,12 +47,24 @@ class JobController extends Controller
         $job = Job::find(1);
         return view('admin.job.edit',['job' => $job]);
     }
-    public function update()
+    public function update(Request $request)
     {
-        return redirect('admin/job/index');
+      $job = Job::find(1);
+      $job->body = $request->input('body');
+      $job->image_path = $request->input('image_path');
+      $job->save();
+     return redirect('admin/job/index');
     }
-     public function check()
+     public function check(Request $request)
     {
-        return view('admin.job.check');
+      $form = $request->all();
+      $body=$request->input('body');
+      if (isset($form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $image_path = basename($path);
+      } else {
+          $image_path = $request->input('image_path');;
+      }
+      return view('admin.job.check',['body' => $body,'image_path' => $image_path]);
     }
 }
